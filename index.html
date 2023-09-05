@@ -35,7 +35,7 @@
   <li><a href="./about/any_url">Относительная ссылка на страниицу из каталога about</a></li>
   <li><a href="../any_url.html">Относительная ссылка на страниицу в каталоге уровнем выше текущего</a></li>
   <li><a href="../../any_url.html">Относительная ссылка на страниицу в каталоге двумя уровнями выше текущего</a></li>
-  <li><p>Какой либо текст с <a href="какая-то ссылка.html">контекстной ссылкой</a> внутри него.</p></li>
+  <li><p>Какой либо текст с <a href="any.html">контекстной ссылкой</a> внутри него.</p></li>
   <li><a href="https://dic.academic.ru/dic.nsf/ruwiki/1266550#socialBar_h">Ссылка на фрагмент со стороннего ресурса</a></li>
   <li><img src="clickable_areas.png" alt="Картинка" usemap="#map"></li>
   <map name="map">
@@ -44,7 +44,7 @@
   </map>
   <li><a href="#">Пустая ссылка</a></li>
   <li><a>Ссылка без href</a></li>
-  <li><a href="Ссылка по которой запрещен переход поисковикам" rel="nofollow">Текст ссылки</a></li>
+  <li><a href="https://example.com/" rel="nofollow">Текст ссылки</a></li>
   <li><a href="https://example.com/" rel="nofollow">Не отслеживаемая ссылка</a> <noindex>Не отслеживаемый текст</noindex></li>
   <li><p>Пронумерованный список ссылок с подписями:</p></li>
   <ol>
@@ -53,7 +53,8 @@
     <li><a href="ссылканасайт3.html" title="Сайт 3">Сайт 3</a></li>
   </ol>
   <li><a href="ftp://root:admin@ftp.example.com/my_file.rar">Скачать файл по FTP протоколу</a></li>
-  <li><h2>Регистрационная форма</h2></li>
+  <h2>22. Регистрационная форма</h2>
+</ol>
   <form action="обработчик.php" method="post">
     <label for="fio">1) ФИО:</label>
     <input type="text" id="fio" name="fio" required><br><br>
@@ -88,6 +89,6 @@
     <label for="contract_agree">8) С контрактом ознакомлен(а)</label><br><br>
     <input type="submit" value="Сохранить">
   </form>
-</ol>
+
 </body>
 </html>
