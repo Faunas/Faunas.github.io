@@ -1,9 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Задание 1</title>
 </head>
@@ -11,31 +10,34 @@
 <ol>
   <li><a href="http://kubsu.ru/">КубГУ по протоколу без защиты</a></li>
   <li><a href="https://kubsu.ru/">КубГУ по защищенному протоколу</a></li>
-  <li> <a href="Ссылка"> <img src="image.jpg" style="width: 300px" alt="Картинка битая"></a></li>
-  <li><a href="index.html">Перейти на страницу по сокращенной ссылке</a></li>
-  <li><a href ="/kubsu.html"> Перейти на сокращенную ссылку</a></li>
+  <li><a href="Ссылка"><img src="image.jpg" style="width: 300px" alt="Картинка битая"></a></li>
+  <li><a href="/">Перейти на страницу по сокращенной ссылке</a></li>
+  <li><a href="/kubsu.html">Перейти на сокращенную ссылку</a></li>
   <li><a href="#element_id">Переход к якорю</a></li>
-    Текст на странице <br>
-    Текст на странице <br>
-    Текст на странице <br>
-    Текст на странице <br>
-    Текст на странице <br>
-    Текст на странице <br>
-    Текст на странице <br>
-    Текст на странице <br>
+  </ol>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
   <p id="element_id">Якорь на странице</p>
-    Текст на странице <br>
-    Текст на странице <br>
-    Текст на странице <br>
-    Текст на странице <br>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
+  <p>Текст на странице</p>
 
   <li><a href="index.html?param1=value1&param2=value2&param3=value3">Ссылка с тремя параметрами</a></li>
   <li><a href="index.html?id=user_id">Ссылка с параметром id</a></li>
-  <li><a href="./any_url">Относительная ссылка на страниицу в каталоге</a></li>
-  <li><a href="./about/any_url">Относительная ссылка на страниицу из каталога about</a></li>
-  <li><a href="../any_url.html">Относительная ссылка на страниицу в каталоге уровнем выше текущего</a></li>
-  <li><a href="../../any_url.html">Относительная ссылка на страниицу в каталоге двумя уровнями выше текущего</a></li>
-  <li><p>Какой либо текст с <a href="any.html">контекстной ссылкой</a> внутри него.</p></li>
+  <li><a href="./any_url">Относительная ссылка на страницу в каталоге</a></li>
+  <li><a href="./about/any_url">Относительная ссылка на страницу из каталога about</a></li>
+  <li><a href="../any_url.html">Относительная ссылка на страницу в каталоге уровнем выше текущего</a></li>
+  <li><a href="../../any_url.html">Относительная ссылка на страницу в каталоге двумя уровнями выше текущего</a></li>
+  <li>
+    <p>Какой-либо текст с <a href="any.html">контекстной ссылкой</a> внутри него.</p>
+  </li>
   <li><a href="https://dic.academic.ru/dic.nsf/ruwiki/1266550#socialBar_h">Ссылка на фрагмент со стороннего ресурса</a></li>
   <li><img src="clickable_areas.png" alt="Картинка" usemap="#map"></li>
   <map name="map">
@@ -45,50 +47,51 @@
   <li><a href="#">Пустая ссылка</a></li>
   <li><a>Ссылка без href</a></li>
   <li><a href="https://example.com/" rel="nofollow">Текст ссылки</a></li>
-  <li><a href="https://example.com/" rel="nofollow">Не отслеживаемая ссылка</a> <noindex>Не отслеживаемый текст</noindex></li>
-  <li><p>Пронумерованный список ссылок с подписями:</p></li>
-  <ol>
-    <li><a href="ссылканасайт1.html" title="Сайт 1">Сайт 1</a></li>
-    <li><a href="ссылканасайт2.html" title="Сайт 2">Сайт 2</a></li>
-    <li><a href="ссылканасайт3.html" title="Сайт 3">Сайт 3</a></li>
-  </ol>
+  <li><a href="https://example.com/" rel="nofollow">Не отслеживаемая ссылка</a> <span>Не отслеживаемый текст</span></li>
+  <li>
+    <p>Пронумерованный список ссылок с подписями:</p>
+    <ol>
+      <li><a href="ссылканасайт1.html" title="Сайт 1">Сайт 1</a></li>
+      <li><a href="ссылканасайт2.html" title="Сайт 2">Сайт 2</a></li>
+      <li><a href="ссылканасайт3.html" title="Сайт 3">Сайт 3</a></li>
+    </ol>
+  </li>
   <li><a href="ftp://root:admin@ftp.example.com/my_file.rar">Скачать файл по FTP протоколу</a></li>
-  <h2>22. Регистрационная форма</h2>
+  <li><h2>22. Регистрационная форма</h2></li>
 </ol>
-  <form action="обработчик.php" method="post">
-    <label for="fio">1) ФИО:</label>
-    <input type="text" id="fio" name="fio" required><br><br>
-    <label for="phone">2) Телефон:</label>
-    <input type="tel" id="phone" name="phone" required><br><br>
-    <label for="email">3) E-mail:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="birthdate">4) Дата рождения:</label>
-    <input type="date" id="birthdate" name="birthdate" required><br><br>
-    <label>5) Пол:</label>
-    <input type="radio" id="male" name="gender" value="male" required>
-    <label for="male">Мужской</label>
-    <input type="radio" id="female" name="gender" value="female" required>
-    <label for="female">Женский</label><br><br>
-    <label for="programming_languages">6) Любимый язык программирования:</label><br>
-    <select id="programming_languages" name="programming_languages" multiple>
-      <option value="Pascal">Pascal</option>
-      <option value="C">C</option>
-      <option value="C++">C++</option>
-      <option value="JavaScript">JavaScript</option>
-      <option value="PHP">PHP</option>
-      <option value="Python">Python</option>
-      <option value="Java">Java</option>
-      <option value="Haskel">Haskel</option>
-      <option value="Clojure">Clojure</option>
-      <option value="Prolog">Prolog</option>
-      <option value="Scala">Scala</option>
-    </select><br><br>
-    <label for="bio">7) Биография:</label><br>
-    <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
-    <input type="checkbox" id="contract_agree" name="contract" required>
-    <label for="contract_agree">8) С контрактом ознакомлен(а)</label><br><br>
-    <input type="submit" value="Сохранить">
-  </form>
-
+<form action="обработчик.php" method="post">
+  <label for="fio">1) ФИО:</label>
+  <input type="text" id="fio" name="fio" required><br><br>
+  <label for="phone">2) Телефон:</label>
+  <input type="tel" id="phone" name="phone" required><br><br>
+  <label for="email">3) E-mail:</label>
+  <input type="email" id="email" name="email" required><br><br>
+  <label for="birthdate">4) Дата рождения:</label>
+  <input type="date" id="birthdate" name="birthdate" required><br><br>
+  <label>5) Пол:</label>
+  <input type="radio" id="male" name="gender" value="male" required>
+  <label for="male">Мужской</label>
+  <input type="radio" id="female" name="gender" value="female" required>
+  <label for="female">Женский</label><br><br>
+  <label for="programming_languages">6) Любимый язык программирования:</label><br>
+  <select id="programming_languages" name="programming_languages" multiple>
+    <option value="Pascal">Pascal</option>
+    <option value="C">C</option>
+    <option value="C++">C++</option>
+    <option value="JavaScript">JavaScript</option>
+    <option value="PHP">PHP</option>
+    <option value="Python">Python</option>
+    <option value="Java">Java</option>
+    <option value="Haskell">Haskell</option>
+    <option value="Clojure">Clojure</option>
+    <option value="Prolog">Prolog</option>
+    <option value="Scala">Scala</option>
+  </select><br><br>
+  <label for="bio">7) Биография:</label><br>
+  <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
+  <input type="checkbox" id="contract_agree" name="contract" required>
+  <label for="contract_agree">8) С контрактом ознакомлен(а)</label><br><br>
+  <input type="submit" value="Сохранить">
+</form>
 </body>
 </html>
