@@ -28,9 +28,11 @@
 .footer-bg p{
     color: aqua;
 }
+
 .header_wrap{
     box-shadow: 4px 4px 30px 1px rgba(255, 0, 214, 0.9);
 }
+
 .header{
     display: flex;
     align-items: center;
@@ -79,23 +81,28 @@ nav ul {
 }
 
 nav ol{
-    text-align: center;
+    text-align: left;
     list-style: none;
+    justify-content: center;
 }
 
 nav li {
-    text-align: center;
+    text-align: left;
+    justify-content: center;
 }
 
 
 nav{
     width: 960px;
-    text-align: center;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
 
 }
 
 nav table{
-    margin: 0 auto;
+    
+    justify-content: center;
+    text-align: left;
 }
