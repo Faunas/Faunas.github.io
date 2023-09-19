@@ -28,6 +28,9 @@
 .footer-bg p{
     color: aqua;
 }
+.header_wrap{
+    box-shadow: 4px 4px 30px 1px rgba(255, 0, 214, 0.9);
+}
 .header{
     display: flex;
     align-items: center;
