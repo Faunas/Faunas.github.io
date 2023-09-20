@@ -2,9 +2,30 @@
     padding: 0;
     margin: 0;
 }
-
+h2{
+    color: #42a934;
+    font-family: "Arial Black", serif;
+}
+a, p{
+    color: #45983c;
+    font-family: "Arial Black", serif;
+}
+label{
+    color: #45983c;
+    font-family: "Arial Black", serif;
+}
+input.submit{
+    width: 199px;
+    height: 35px;
+}
+input.submit, .value{
+    color: #4f1988;
+    font-size: 20px;
+    font-family: "Arial Black", serif;
+}
 .logo{
     border-radius: 30px;
+    width: 100px;
 }
 
 .logo:hover{
@@ -12,6 +33,9 @@
 }
 .first{
     background-color: #00cdc8;
+}
+body {
+    background-color: #181220;
 }
 .second{
     background-color: deeppink;
@@ -21,9 +45,9 @@
     color: rebeccapurple;
     transition: 0.1s ease-in-out;
 }
-
 .footer-bg{
     background-color: #121820;
+    margin: 50px 0 0 0;
 }
 .footer-bg p{
     color: aqua;
@@ -100,9 +124,28 @@ nav{
     justify-content: center;
 
 }
+nav table caption{
+    color: #6c1ca1;
+    background-color: #00cdc8;
+}
 
 nav table{
-    
+    border-style: solid;
+    border-color: #6c1ca1;
     justify-content: center;
     text-align: left;
 }
+.table {
+    background-color: cornflowerblue;
+    border-style: solid;
+    border-color: #6c1ca1;
+}
+.kitty-footer{
+    justify-content: space-between;
+    display: flex;
+
+}
+.kitty-footer img{
+    width: 250px;
+}
+
