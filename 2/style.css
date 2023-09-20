@@ -25,11 +25,16 @@ input.submit, .value{
 }
 .logo{
     border-radius: 30px;
+    content: url('kitty-header.png');
+    height: 75px;
     width: 100px;
 }
 
 .logo:hover{
     border-radius: 10px;
+    content: url('kitty-header-hover.png');
+    height: 75px;
+    width: 100px;
 }
 .first{
     background-color: #00cdc8;
