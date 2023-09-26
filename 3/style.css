@@ -1,1 +1,155 @@
+div table caption{
+    color: #6c1ca1;
+    background-color: #00cdc8;
+}
+
+div table{
+    border-style: solid;
+    border-color: #6c1ca1;
+    justify-content: center;
+    text-align: left;
+}
+.table {
+    background-color: cornflowerblue;
+    border-style: solid;
+    border-color: #6c1ca1;
+}
+* {
+    box-sizing: border-box;
+}
+.first{
+    background-color: #00cdc8;
+}
+.container {
+    background-color: #00cdc8;
+}
+.second{
+    background-color: deeppink;
+}
+a {
+    color: rgb(133, 72, 168);
+    font-size: 16px;
+}
+@media (min-width: 1024px) {
+    a {
+        font-size: 25px;
+    }
+
+}
+li {
+    margin-bottom: 20px;
+}
+.inside_cont, .table{
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.clickable_areas{
+    width: 50%;
+}
+
+.inside_cont{
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: rgb(131, 37, 194);
+}
+
+img {
+    cursor: pointer;
+}
+p {
+    margin: 0;
+}
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.table_for_order{
+    order: -1;
+}
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+@media (min-width: 976px)
+{
+    .nav-links {
+        flex-direction: row;
+        margin-top: 0;
+    }
+    .header-title
+    {
+        margin: 0;
+    }
+    .table_for_order{
+        order: 1;
+        margin: 20px;
+    }
+}
+.footer-bg
+{
+    background-color: #00cdc8;;
+}
+.nav-links li {
+    margin-bottom: 0;
+}
+
+
+.header .container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (min-width: 976px) {
+    .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title {
+    margin-left: 20px;
+    font-size: 25px;
+}
+
+@media (min-width: 976px) {
+    .header-title {
+        font-size: 32px;
+        margin: 0;
+    }
+
+
+@media (min-width: 389px) {
+    .nav-links {
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .header-title
+    {
+        margin: 0;
+    }
+
+}
+    .main-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
