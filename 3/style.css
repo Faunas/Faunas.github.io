@@ -92,7 +92,7 @@ p {
         margin: 0;
     }
     .table_for_order{
-        order: 1;
+        order: 0;
         margin: 20px;
     }
 }
