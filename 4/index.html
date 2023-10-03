@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Задание 2</title>
+</head>
+<body>
+  <header class="header bg-info w-100">
+
+    <div class="container d-flex flex-column flex-md-row align-items-md-center">
+      <a href="/" class="logo d-flex flex-row">
+        <img src="../4/image.png" alt="logo">
+        <h1 class="header-title ml-2 mt-5 mt-md-0 pt-5">Задание 3</h1>
+      </a>
+      <div class="header-content ml-md-auto mt-3 mt-md-0">
+        <nav class="nav pb-5">
+          <ul class="nav-links d-flex flex-column flex-md-row list-unstyled text-md-center">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold text-black-50" href="/">Ссылка 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold text-black-50" href="/">Ссылка 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold text-black-50" href="/">Ссылка 3</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+    <div class="container mt-4">
+      <!-- Your existing content goes here with Bootstrap classes -->
+      <div class="inside_cont">
+        <div class="all_content_for_order">
+          <ul>
+            <li><a href="http://kubsu.ru/">КубГУ по протоколу без защиты</a></li>
+            <li><a href="https://kubsu.ru/">КубГУ по защищенному протоколу</a></li>
+            <li><a href="Ссылка"><img src="image.jpg" class="img-fluid" style="width: 300px" alt="Картинка битая"></a></li>
+            <li><a href="/">Перейти на страницу по сокращенной ссылке</a></li>
+            <li><a href="/kubsu.html">Перейти на сокращенную ссылку</a></li>
+            <li><a href="#element_id">Переход к якорю</a></li>
+          </ul>
+
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p id="element_id">Якорь на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+          <p>Текст на странице</p>
+
+
+          <ul>
+            <li><a href="index.html?param1=value1&param2=value2&param3=value3">Ссылка с тремя параметрами</a></li>
+            <li><a href="index.html?id=user_id">Ссылка с параметром id</a></li>
+            <li><a href="./any_url">Относительная ссылка на страницу в каталоге</a></li>
+            <li><a href="./about/any_url">Относительная ссылка на страницу из каталога about</a></li>
+            <li><a href="../any_url.html">Относительная ссылка на страницу в каталоге уровнем выше текущего</a></li>
+            <li><a href="../../any_url.html">Относительная ссылка на страницу в каталоге двумя уровнями выше текущего</a></li>
+            <li>
+              <p>Какой-либо текст с <a href="any.html">контекстной ссылкой</a> внутри него.</p>
+            </li>
+            <li><a href="https://dic.academic.ru/dic.nsf/ruwiki/1266550#socialBar_h">Ссылка на фрагмент со стороннего ресурса</a></li>
+          </ul>
+          <map name="map">
+            <area shape="rect" coords="150,100,1000,150" href="Сайтвквадрате.html" alt="Сайт в квадрате">
+            <area shape="circle" coords="20,20,500" href="Сайтвкружке.html" alt="Сайт в кружке">
+          </map>
+          <ul>
+            <li><a href="#">Пустая ссылка</a></li>
+            <li><a>Ссылка без href</a></li>
+            <li><a href="https://example.com/" rel="nofollow">Ссылка по которой запрещен переход поисковикам</a></li>
+            <li><p><a href="https://example.com/" rel="nofollow">Ссылка без индексации</a></p></li>
+            <li>
+              <p>Пронумерованный список ссылок с подписями:</p>
+              <ol>
+                <li><a href="ссылканасайт1.html" title="Сайт 1">Сайт 1</a></li>
+                <li><a href="ссылканасайт2.html" title="Сайт 2">Сайт 2</a></li>
+                <li><a href="ссылканасайт3.html" title="Сайт 3">Сайт 3</a></li>
+              </ol>
+            </li>
+            <li><a href="ftp://root:admin@ftp.example.com/my_file.rar">Скачать файл по FTP протоколу</a></li>
+          </ul>
+        </div>
+
+
+      <div class="table-responsive table_for_order mt-4">
+        <b>Таблица с данными</b>
+        <table class="table table-bordered">
+              <tr>
+                <th>Наименование</th>
+                <th>Стоимость</th>
+                <th>Доставка</th>
+                <th>Образец</th>
+              </tr>
+              <!-- Первая строка -->
+              <tr class="first">
+                <td> Автомобиль </td>
+                <td> Ячейка 1 </td>
+                <td> Ячейка 2 </td>
+                <td> Ячейка 3 </td>
+              </tr>
+              <!-- Вторая строка -->
+              <tr class="second">
+                <td colspan="2"> Ячейка 4 и Ячейка 5 </td>
+                <td> Ячейка 6 </td>
+                <td> Ячейка 7 </td>
+              </tr>
+              <!-- Третья строка -->
+              <tr class="first">
+                <td colspan="4"> Ячейка 8 объединенная с 9, 10, 11 ячейками</td>
+              </tr>
+              <!-- Четвертая строка -->
+              <tr class="second">
+                <td> Ячейка 12 </td>
+                <td> Ячейка 13 </td>
+                <td> Ячейка 14 </td>
+                <td> Ячейка 15 </td>
+              </tr>
+              <!-- Пятая строка -->
+              <tr class="first">
+                <td> Ячейка 16 </td>
+                <td> Ячейка 17 </td>
+                <td colspan="2"> Ячейка 18 и Ячейка 19</td>
+              </tr>
+              <!-- Шестая строка -->
+              <tr class="second">
+                <td> Ячейка 20 </td>
+                <td> Ячейка 21 </td>
+                <td> Ячейка 22 </td>
+                <td> Ячейка 23 </td>
+              </tr>
+        </table>
+      </div>
+
+      <div class="form_post_obr mt-4">
+        <h2 class="mt-4">22. Регистрационная форма</h2>
+        <form action="обработчик.php" method="post">
+          <label for="fio">1) ФИО:</label>
+          <input type="text" id="fio" name="fio" required><br><br>
+          <label for="phone">2) Телефон:</label>
+          <input type="tel" id="phone" name="phone" required><br><br>
+          <label for="email">3) E-mail:</label>
+          <input type="email" id="email" name="email" required><br><br>
+          <label for="birthdate">4) Дата рождения:</label>
+          <input type="date" id="birthdate" name="birthdate" required><br><br>
+          <label>5) Пол:</label>
+          <input type="radio" id="male" name="gender" value="male" required>
+          <label for="male">Мужской</label>
+          <input type="radio" id="female" name="gender" value="female" required>
+          <label for="female">Женский</label><br><br>
+          <label for="programming_languages">6) Любимый язык программирования:</label><br>
+          <select id="programming_languages" name="programming_languages" multiple>
+            <option value="Pascal">Pascal</option>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="PHP">PHP</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="Haskell">Haskell</option>
+            <option value="Clojure">Clojure</option>
+            <option value="Prolog">Prolog</option>
+            <option value="Scala">Scala</option>
+          </select><br><br>
+          <label for="bio">7) Биография:</label><br>
+          <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
+          <input type="checkbox" id="contract_agree" name="contract" required>
+          <label for="contract_agree">8) С контрактом ознакомлен(а)</label><br><br>
+          <input type="submit" value="Сохранить">
+        </form>
+      </div>
+      </div>
+    </div>
+
+    <footer class="footer mt-4">
+      <div class="footer-bg">
+        <p> Подвал (С) Лукьянчиков Максим </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
