@@ -1,0 +1,15 @@
+.first{
+    background-color: #00cdc8;
+}
+.second{
+    background-color: deeppink;
+}
+.table{
+    padding: 20px 0px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: cornflowerblue;
+    border-style: solid;
+    border-color: #6c1ca1;
+}
