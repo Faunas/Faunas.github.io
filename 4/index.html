@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,7 +13,7 @@
 
     <div class="container d-flex flex-column flex-md-row align-items-md-center">
       <a href="/" class="logo d-flex flex-row">
-        <img src="../4/image.png" alt="logo">
+        <img src="image.png" alt="logo">
         <h1 class="header-title ml-2 mt-5 mt-md-0 pt-5">Задание 4</h1>
       </a>
       <div class="header-content ml-md-auto mt-3 mt-md-0">
@@ -32,27 +33,17 @@
       </div>
     </div>
   </header>
-
-
-
-
-
-
-
-
     <div class="container mt-4">
-      <!-- Your existing content goes here with Bootstrap classes -->
-      <div class="inside_cont">
-        <div class="all_content_for_order">
+      <div class="row">
+        <div class="all_content_for_order order-2 order-md-1 my-4">
           <ul>
             <li><a href="http://kubsu.ru/">КубГУ по протоколу без защиты</a></li>
             <li><a href="https://kubsu.ru/">КубГУ по защищенному протоколу</a></li>
-            <li><a href="Ссылка"><img src="image.jpg" class="img-fluid" style="width: 300px" alt="Картинка битая"></a></li>
+            <li><a href="Ссылка"><img src="../image.jpg" class="img-fluid" style="width: 300px" alt="Картинка битая"></a></li>
             <li><a href="/">Перейти на страницу по сокращенной ссылке</a></li>
             <li><a href="/kubsu.html">Перейти на сокращенную ссылку</a></li>
             <li><a href="#element_id">Переход к якорю</a></li>
           </ul>
-
           <p>Текст на странице</p>
           <p>Текст на странице</p>
           <p>Текст на странице</p>
@@ -102,7 +93,7 @@
         </div>
 
 
-      <div class="table-responsive table_for_order mt-4">
+      <div class="wrapper-table table-responsive table_for_order mt-4 order-md-0 order-lg-2">
         <b>Таблица с данными</b>
         <table class="table table-bordered">
               <tr>
@@ -151,7 +142,7 @@
         </table>
       </div>
 
-      <div class="form_post_obr mt-4">
+      <div class="form_post_obr mt-4 order-3">
         <h2 class="mt-4">22. Регистрационная форма</h2>
         <form action="обработчик.php" method="post">
           <label for="fio">1) ФИО:</label>
@@ -187,7 +178,7 @@
           <label for="contract_agree">8) С контрактом ознакомлен(а)</label><br><br>
           <input type="submit" value="Сохранить">
         </form>
-      </div>
+        </div>
       </div>
     </div>
 
