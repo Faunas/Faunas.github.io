@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости заказа</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем JS файл с кодом калькулятора -->
+    <script src="calculator.js" defer></script>
+</head>
+<body>
+
+<h1>Калькулятор стоимости заказа</h1>
+
+<label for="product">Выберите товар:</label><br>
+<select id="product">
+    <option value="car" data-price="10">Автомобиль - 10 рублей</option>
+    <option value="home" data-price="20">Дом - 20 рублей</option>
+    <option value="home2" data-price="30">Квартира - 30 рублей</option>
+    <option value="alarm" data-price="40">Сигнализация - 40 рублей</option>
+    <option value="pencils" data-price="50">Ручки и карандаши - 50 рублей</option>
+    <option value="auto-exam" data-price="9999990">Самоэкзамен - 9999990 рублей</option>
+</select>
+
+<br><label for="quantity">Количество товара:</label><br>
+<input type="text" id="quantity" value="1" min="1">
+<br><button id="calculateButton">Подсчитать стоимость</button>
+<h2>Стоимость заказа: <span id="total">0</span> руб.</h2>
+
+
+
+</body>
+</html>
