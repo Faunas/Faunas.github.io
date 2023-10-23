@@ -1,0 +1,29 @@
+body {
+    background-color: #212926;
+}
+
+.slick-current {
+    box-shadow: 4px 4px 7px;
+    transition: all ease-in-out .3s;
+}
+
+.slick-prev::before, .slick-next::before {
+    font-size: 30px;
+    color: #aea055;
+}
+
+.slick-dots li button:before {
+    color: #ffd500;
+}
+
+.slick-dots li.slick-active button:before  {
+    color: #342341;
+}
+
+img {
+    transition: all ease-in-out .3s;
+}
+
+.slick-slide {
+    transition: all ease-in-out .3s;
+}
