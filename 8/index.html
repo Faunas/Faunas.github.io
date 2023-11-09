@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/slapform@latest/dist/index.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+<div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+        <div class="close-btn" onclick="closeForm()">X</div>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="fullName">ФИО:</label>
+                <input type="text" id="fullName" name="fullName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="organization">Организация:</label>
+                <input type="text" id="organization" name="organization">
+            </div>
+            <div class="form-group">
+                <label for="message1">Сообщение:</label>
+                <textarea id="message1" name="message1"></textarea>
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="consent" name="consent">
+                <label for="consent">Согласие с политикой обработки персональных данных</label>
+            </div>
+            <button type="button" onclick="submitForm()">Отправить</button>
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+</div>
+
+<button onclick="openForm()">Открыть форму</button>
+
+</body>
+</html>
