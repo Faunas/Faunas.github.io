@@ -10,7 +10,7 @@ function openForm() {
 
 function closeForm() {
     overlay.style.display = 'none';
-    history.pushState(null, null, '/');
+    history.pushState(null, null, '/8');
 }
 
 function submitForm() {
