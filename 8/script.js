@@ -5,7 +5,6 @@ const messageDiv = document.getElementById('message');
 function openForm() {
     overlay.style.display = 'flex';
     history.pushState({ formOpen: true }, null, '#form');
-    restoreFormValues();
 }
 
 function closeForm() {
@@ -51,19 +50,6 @@ function saveFormValues() {
         }
     });
     localStorage.setItem('formValues', JSON.stringify(formValues));
-}
-
-function restoreFormValues() {
-    const storedValues = localStorage.getItem('formValues');
-    if (storedValues) {
-        const formValues = JSON.parse(storedValues);
-        Object.keys(formValues).forEach(name => {
-            const element = form.elements[name];
-            if (element) {
-                element.value = formValues[name];
-            }
-        });
-    }
 }
 
 window.addEventListener('popstate', function (event) {
