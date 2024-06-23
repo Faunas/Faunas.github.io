@@ -33,6 +33,7 @@ body {
 
 #coin-container {
     position: relative;
+	user-select: none;
 }
 
 #coin {
