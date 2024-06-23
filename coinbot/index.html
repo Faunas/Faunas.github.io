@@ -10,7 +10,10 @@
 
     <div id="miner-screen" class="screen active">
         <div id="balance">Ваш баланс: 0</div>
-        <div id="coin"></div>
+        <div id="coin-container">
+            <div id="coin"></div>
+            <span id="click-value">+0.01</span>
+        </div>
         <div id="energy-text">Энергия: 1000/1000</div>
         <div id="energy-container">
             <div id="energy" style="width: 100%;"></div>
@@ -60,42 +63,58 @@
     </div>
 
     <script>
-        let balance = parseFloat(localStorage.getItem('balance')) || 0;
-        let energy = parseInt(localStorage.getItem('energy')) || 1000;
-        const maxEnergy = 1000;
+        const userData = JSON.parse(localStorage.getItem('userData')) || {
+            balance: 0,
+            energy: 1000,
+            maxEnergy: 1000,
+            clickValue: 0.01
+        };
+
         const coin = document.getElementById('coin');
         const balanceElement = document.getElementById('balance');
         const energyElement = document.getElementById('energy');
         const energyText = document.getElementById('energy-text');
+        const clickValueElem = document.getElementById('click-value');
         const inviteLink = document.getElementById('invite-link');
 
         function updateUI() {
-            balanceElement.textContent = `Ваш баланс: ${balance.toFixed(2)}`;
-            energyElement.style.width = `${(energy / maxEnergy) * 100}%`;
-            energyText.textContent = `Энергия: ${energy}/${maxEnergy}`;
+            balanceElement.textContent = `Ваш баланс: ${userData.balance.toFixed(2)}`;
+            energyElement.style.width = `${(userData.energy / userData.maxEnergy) * 100}%`;
+            energyText.textContent = `Энергия: ${userData.energy}/${userData.maxEnergy}`;
         }
 
         coin.addEventListener('click', () => {
-            if (energy > 0) {
-                balance += 0.01;
-                energy -= 1;
+            if (userData.energy > 0) {
+                userData.balance += userData.clickValue;
+                userData.energy -= 1;
 
-                localStorage.setItem('balance', balance.toFixed(2));
-                localStorage.setItem('energy', energy);
+                localStorage.setItem('userData', JSON.stringify(userData));
 
                 updateUI();
-
-                coin.style.transform = 'scale(0.9)';
-                setTimeout(() => {
-                    coin.style.transform = 'scale(1)';
-                }, 500);
+                showClickValue(userData.clickValue);
+                animateCoin();
             }
         });
 
+        function showClickValue(value) {
+            clickValueElem.textContent = `+${value.toFixed(2)}`;
+            clickValueElem.classList.add('show');
+            setTimeout(() => {
+                clickValueElem.classList.remove('show');
+            }, 500);
+        }
+
+        function animateCoin() {
+            coin.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                coin.style.transform = 'scale(1)';
+            }, 500);
+        }
+
         function restoreEnergy() {
-            if (energy < maxEnergy) {
-                energy += 1;
-                localStorage.setItem('energy', energy);
+            if (userData.energy < userData.maxEnergy) {
+                userData.energy += 1;
+                localStorage.setItem('userData', JSON.stringify(userData));
                 updateUI();
             }
         }
