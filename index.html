@@ -74,24 +74,21 @@
             fetchUserInfo(telegramId); // Загрузка информации о пользователе при наличии telegram_id
         }
 
-        function fetchUserInfo(telegramId) {
-            fetch(`/api/user/${telegramId}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Ошибка загрузки данных пользователя');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Обновление интерфейса с полученными данными о пользователе
-                    userData.balance = data.balance;
-                    userData.energy = data.energy;
-                    userData.maxEnergy = data.max_energy;
-                    userData.clickValue = data.click_value;
-                    updateUI();
-                })
-                .catch(error => console.error('Ошибка:', error));
-        }
+        // Вместо использования локальной переменной userData, загружаем данные с сервера
+		function fetchUserInfo(telegramId) {
+			fetch(`/api/user/${telegramId}`)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Ошибка загрузки данных пользователя');
+					}
+					return response.json();
+				})
+				.then(data => {
+					// Обновляем интерфейс с полученными данными о пользователе
+					updateUI(data); // Передаем полученные данные в функцию обновления интерфейса
+				})
+				.catch(error => console.error('Ошибка:', error));
+		}
 
         const userData = {
             balance: 0,
