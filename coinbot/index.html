@@ -63,7 +63,7 @@
     </div>
 
     <script>
-		const telegramIdValue = document.getElementById('telegram-id-value');
+        const telegramIdValue = document.getElementById('telegram-id-value');
 
         // Получение telegram_id из URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -71,9 +71,26 @@
 
         if (telegramId) {
             telegramIdValue.textContent = telegramId;
+            fetchUserInfo(telegramId); // Загрузка информации о пользователе при наличии telegram_id
         }
-		
-        const userData = JSON.parse(localStorage.getItem('userData')) || {
+
+        // Вместо использования локальной переменной userData, загружаем данные с сервера
+		function fetchUserInfo(telegramId) {
+			fetch(`/api/user/${telegramId}`)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Ошибка загрузки данных пользователя');
+					}
+					return response.json();
+				})
+				.then(data => {
+					// Обновляем интерфейс с полученными данными о пользователе
+					updateUI(data); // Передаем полученные данные в функцию обновления интерфейса
+				})
+				.catch(error => console.error('Ошибка:', error));
+		}
+
+        const userData = {
             balance: 0,
             energy: 1000,
             maxEnergy: 1000,
@@ -87,7 +104,7 @@
         const inviteLink = document.getElementById('invite-link');
         const coinContainer = document.getElementById('coin-container');
 
-        function updateUI() {
+        function updateUI(userData) {
             balanceElement.textContent = `Ваш баланс: ${userData.balance.toFixed(2)}`;
             energyElement.style.width = `${(userData.energy / userData.maxEnergy) * 100}%`;
             energyText.textContent = `Энергия: ${userData.energy}/${userData.maxEnergy}`;
@@ -98,11 +115,32 @@
                 userData.balance += userData.clickValue;
                 userData.energy -= 1;
 
-                localStorage.setItem('userData', JSON.stringify(userData));
-
-                updateUI();
-                showClickValue(event.clientX, event.clientY, userData.clickValue);
-                animateCoin();
+                fetch('/api/user/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        telegram_id: telegramId,
+                        balance: userData.balance,
+                        energy: userData.energy,
+                        max_energy: userData.maxEnergy,
+                        click_value: userData.clickValue
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Ошибка сохранения данных пользователя');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Данные пользователя успешно обновлены:', data.message);
+                    updateUI();
+                    showClickValue(event.clientX, event.clientY, userData.clickValue);
+                    animateCoin();
+                })
+                .catch(error => console.error('Ошибка:', error));
             }
         });
 
@@ -126,45 +164,13 @@
             }, 100);
         }
 
-        function restoreEnergy() {
-            if (userData.energy < userData.maxEnergy) {
-                userData.energy += 1;
-                localStorage.setItem('userData', JSON.stringify(userData));
-                updateUI();
-            }
+        function generateReferralLink(telegramUserId) {
+            const userId = Math.floor(Math.random() * 1000000);
+            return `https://faunas.github.io/coinbot/?start=${userId}&telegram_id=${telegramUserId}`;
         }
 
-        setInterval(restoreEnergy, 1000);
-
-        function generateReferralLink(telegramUserId) {
-			const userId = localStorage.getItem('userId') || Math.floor(Math.random() * 1000000);
-			localStorage.setItem('userId', userId);
-			return `https://faunas.github.io/coinbot/?start=${userId}&telegram_id=${telegramUserId}`;
-		}
-		
-		// Function to parse URL parameters
-		function getParameterByName(name, url) {
-			if (!url) url = window.location.href;
-			name = name.replace(/[\[\]]/g, '\\$&');
-			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-				results = regex.exec(url);
-			if (!results) return null;
-			if (!results[2]) return '';
-			return decodeURIComponent(results[2].replace(/\+/g, ' '));
-		}
-
-		// Usage to get telegram_id from URL
-		const telegramUserId = getParameterByName('telegram_id');
-		console.log(`Telegram User ID from URL: ${telegramUserId}`);
-
-		// Example of using telegramUserId
-		inviteLink.addEventListener('click', () => {
-			const referralLink = generateReferralLink(telegramUserId);
-			window.open(referralLink, '_blank');
-		});
-
         inviteLink.addEventListener('click', () => {
-            const referralLink = generateReferralLink();
+            const referralLink = generateReferralLink(telegramId);
             window.open(referralLink, '_blank');
         });
 
