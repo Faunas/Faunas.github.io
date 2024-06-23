@@ -125,11 +125,32 @@
 
         setInterval(restoreEnergy, 1000);
 
-        function generateReferralLink() {
-            const userId = localStorage.getItem('userId') || Math.floor(Math.random() * 1000000);
-            localStorage.setItem('userId', userId);
-            return `https://t.me/your_bot?start=${userId}`;
-        }
+        function generateReferralLink(telegramUserId) {
+			const userId = localStorage.getItem('userId') || Math.floor(Math.random() * 1000000);
+			localStorage.setItem('userId', userId);
+			return `https://yourwebsite.com/?start=${userId}&telegram_id=${telegramUserId}`;
+		}
+		
+		// Function to parse URL parameters
+		function getParameterByName(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, '\\$&');
+			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		}
+
+		// Usage to get telegram_id from URL
+		const telegramUserId = getParameterByName('telegram_id');
+		console.log(`Telegram User ID from URL: ${telegramUserId}`);
+
+		// Example of using telegramUserId
+		inviteLink.addEventListener('click', () => {
+			const referralLink = generateReferralLink(telegramUserId);
+			window.open(referralLink, '_blank');
+		});
 
         inviteLink.addEventListener('click', () => {
             const referralLink = generateReferralLink();
