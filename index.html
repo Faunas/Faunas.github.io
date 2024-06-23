@@ -9,7 +9,8 @@
 <body>
 
     <div id="miner-screen" class="screen active">
-        <div id="balance">Ваш баланс: 0</div>
+        <div id="balance">Your Balance: 0</div>
+		<div id="invisible"></div>
         <div id="coin-container">
             <div id="coin"></div>
         </div>
@@ -22,13 +23,13 @@
 
     <div id="friends-screen" class="screen">
         <div class="menu-item">
-            <img src="friends.png" alt="Friends">
+            <img src="assets/friends.png" alt="Friends">
             <div>Friends</div>
             <div>You and your friends will receive bonuses</div>
         </div>
         <div id="invite-link">
             <span>Invite Friends</span>
-            <img src="telegram.png" alt="Telegram">
+            <img src="assets/telegram.png" alt="Telegram">
         </div>
         <div>Friends</div>
         <div>No friends yet</div>
@@ -36,7 +37,7 @@
 
     <div id="earn-screen" class="screen">
         <div class="menu-item">
-            <img src="earn.png" alt="Earn">
+            <img src="assets/earn.png" alt="Earn">
             <div>Earn more coins</div>
         </div>
         <div>Channels</div>
@@ -45,19 +46,19 @@
 
     <div id="bottom-menu">
         <div class="menu-item active" data-screen="miner-screen">
-            <img src="miner.png" alt="Miner">
+            <img src="assets/miner.png" alt="Miner">
             <div>Miner</div>
         </div>
         <div class="menu-item" data-screen="friends-screen">
-            <img src="friends.png" alt="Friends">
+            <img src="assets/friends.png" alt="Friends">
             <div>Friends</div>
         </div>
         <div class="menu-item" data-screen="earn-screen">
-            <img src="earn.png" alt="Earn">
+            <img src="assets/earn.png" alt="Earn">
             <div>Earn</div>
         </div>
         <div class="menu-item" data-screen="boost-screen">
-            <img src="boost.png" alt="Boost">
+            <img src="assets/boost.png" alt="Boost">
             <div>Boost</div>
         </div>
     </div>
@@ -76,7 +77,7 @@
 
         // Вместо использования локальной переменной userData, загружаем данные с сервера
 		function fetchUserInfo(telegramId) {
-			fetch(`/api/user/${telegramId}`)
+			fetch(`http://127.0.0.1:8080/api/user/${telegramId}`)
 				.then(response => {
 					if (!response.ok) {
 						throw new Error('Ошибка загрузки данных пользователя');
@@ -84,8 +85,11 @@
 					return response.json();
 				})
 				.then(data => {
-					// Обновляем интерфейс с полученными данными о пользователе
-					updateUI(data); // Передаем полученные данные в функцию обновления интерфейса
+					userData.balance = data.balance;
+					userData.energy = data.energy;
+					userData.maxEnergy = data.max_energy;
+					userData.clickValue = data.click_value;
+					updateUI(userData); // Передаем данные в updateUI
 				})
 				.catch(error => console.error('Ошибка:', error));
 		}
@@ -104,45 +108,45 @@
         const inviteLink = document.getElementById('invite-link');
         const coinContainer = document.getElementById('coin-container');
 
-        function updateUI() {
-            balanceElement.textContent = `Ваш баланс: ${userData.balance.toFixed(2)}`;
-            energyElement.style.width = `${(userData.energy / userData.maxEnergy) * 100}%`;
-            energyText.textContent = `Энергия: ${userData.energy}/${userData.maxEnergy}`;
-        }
+        function updateUI(userData) {
+			balanceElement.innerHTML = `Ваш Баланс:<br><br>${userData.balance.toFixed(2)}`;
+			energyElement.style.width = `${(userData.energy / userData.maxEnergy) * 100}%`;
+			energyText.textContent = `Энергия: ${userData.energy}/${userData.maxEnergy}`;
+		}
 
         coin.addEventListener('click', (event) => {
-            if (userData.energy > 0) {
-                userData.balance += userData.clickValue;
-                userData.energy -= 1;
+			if (userData.energy > 0) {
+				userData.balance += userData.clickValue;
+				userData.energy -= 1;
 
-                fetch('/api/user/update', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        telegram_id: telegramId,
-                        balance: userData.balance,
-                        energy: userData.energy,
-                        max_energy: userData.maxEnergy,
-                        click_value: userData.clickValue
-                    })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Ошибка сохранения данных пользователя');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Данные пользователя успешно обновлены:', data.message);
-                    updateUI();
-                    showClickValue(event.clientX, event.clientY, userData.clickValue);
-                    animateCoin();
-                })
-                .catch(error => console.error('Ошибка:', error));
-            }
-        });
+				fetch('http://127.0.0.1:8080/api/user/update', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						telegram_id: telegramId,
+						balance: userData.balance,
+						energy: userData.energy,
+						max_energy: userData.maxEnergy,
+						click_value: userData.clickValue
+					})
+				})
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Ошибка сохранения данных пользователя');
+					}
+					return response.json();
+				})
+				.then(data => {
+					console.log('Данные пользователя успешно обновлены:', data.message);
+					updateUI(userData); // Передаем данные в updateUI
+					showClickValue(event.clientX, event.clientY, userData.clickValue);
+					animateCoin();
+				})
+				.catch(error => console.error('Ошибка:', error));
+			}
+		});
 
         function showClickValue(x, y, value) {
             const clickValueElem = document.createElement('span');
@@ -165,8 +169,7 @@
         }
 
         function generateReferralLink(telegramUserId) {
-            const userId = Math.floor(Math.random() * 1000000);
-            return `https://faunas.github.io/coinbot/?start=${userId}&telegram_id=${telegramUserId}`;
+            return `https://faunas.github.io/coinbot/?start=${telegramUserId}`;
         }
 
         inviteLink.addEventListener('click', () => {
@@ -187,7 +190,17 @@
             });
         });
 
-        updateUI();
+        updateUI(userData); // Изначально обновляем UI с начальным значением userData
+		
+		// Функция для периодического обновления информации о пользователе с сервера
+		function periodicFetchUserInfo() {
+			if (telegramId) {
+				fetchUserInfo(telegramId);
+			}
+		}
+
+		// Запуск периодического обновления информации о пользователе каждые 5 секунд
+		setInterval(periodicFetchUserInfo, 5000);
     </script>
 
 </body>
