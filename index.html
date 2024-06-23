@@ -1,102 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Задание 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кликер</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <ul>
-    <li><a href="http://kubsu.ru/">КубГУ по протоколу без защиты</a></li>
-    <li><a href="https://kubsu.ru/">КубГУ по защищенному протоколу</a></li>
-    <li><a href="Ссылка"><img src="image.jpg" style="width: 300px" alt="Картинка битая"></a></li>
-    <li><a href="/">Перейти на страницу по сокращенной ссылке</a></li>
-    <li><a href="/kubsu.html">Перейти на сокращенную ссылку</a></li>
-    <li><a href="#element_id">Переход к якорю</a></li>
-  </ul>
-  
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p id="element_id">Якорь на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
-  <p>Текст на странице</p>
 
- 
-  <ul>
-    <li><a href="index.html?param1=value1&param2=value2&param3=value3">Ссылка с тремя параметрами</a></li>
-    <li><a href="index.html?id=user_id">Ссылка с параметром id</a></li>
-    <li><a href="./any_url">Относительная ссылка на страницу в каталоге</a></li>
-    <li><a href="./about/any_url">Относительная ссылка на страницу из каталога about</a></li>
-    <li><a href="../any_url.html">Относительная ссылка на страницу в каталоге уровнем выше текущего</a></li>
-    <li><a href="../../any_url.html">Относительная ссылка на страницу в каталоге двумя уровнями выше текущего</a></li>
-    <li>
-      <p>Какой-либо текст с <a href="any.html">контекстной ссылкой</a> внутри него.</p>
-    </li>
-    <li><a href="https://dic.academic.ru/dic.nsf/ruwiki/1266550#socialBar_h">Ссылка на фрагмент со стороннего ресурса</a></li>
-    <li><img src="clickable_areas.png" alt="Картинка" usemap="#map"></li>
-  </ul>
-  <map name="map">
-    <area shape="rect" coords="150,100,1000,150" href="Сайтвквадрате.html" alt="Сайт в квадрате">
-    <area shape="circle" coords="20,20,500" href="Сайтвкружке.html" alt="Сайт в кружке">
-  </map>
-  <ul>
-    <li><a href="#">Пустая ссылка</a></li>
-    <li><a>Ссылка без href</a></li>
-    <li><a href="https://example.com/" rel="nofollow">Ссылка по которой запрещен переход поисковикам</a></li>
-    <li><p><a href="https://example.com/" rel="noindex">Без индексации</a></p></li>
-    <li>
-      <p>Пронумерованный список ссылок с подписями:</p>
-      <ol>
-        <li><a href="ссылканасайт1.html" title="Сайт 1">Сайт 1</a></li>
-        <li><a href="ссылканасайт2.html" title="Сайт 2">Сайт 2</a></li>
-        <li><a href="ссылканасайт3.html" title="Сайт 3">Сайт 3</a></li>
-      </ol>
-    </li>
-    <li><a href="ftp://root:admin@ftp.example.com/my_file.rar">Скачать файл по FTP протоколу</a></li>
-    <li><h2>22. Регистрационная форма</h2></li>
-  </ul>
-  <form action="обработчик.php" method="post">
-    <label for="fio">1) ФИО:</label>
-    <input type="text" id="fio" name="fio" required><br><br>
-    <label for="phone">2) Телефон:</label>
-    <input type="tel" id="phone" name="phone" required><br><br>
-    <label for="email">3) E-mail:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="birthdate">4) Дата рождения:</label>
-    <input type="date" id="birthdate" name="birthdate" required><br><br>
-    <label>5) Пол:</label>
-    <input type="radio" id="male" name="gender" value="male" required>
-    <label for="male">Мужской</label>
-    <input type="radio" id="female" name="gender" value="female" required>
-    <label for="female">Женский</label><br><br>
-    <label for="programming_languages">6) Любимый язык программирования:</label><br>
-    <select id="programming_languages" name="programming_languages" multiple>
-      <option value="Pascal">Pascal</option>
-      <option value="C">C</option>
-      <option value="C++">C++</option>
-      <option value="JavaScript">JavaScript</option>
-      <option value="PHP">PHP</option>
-      <option value="Python">Python</option>
-      <option value="Java">Java</option>
-      <option value="Haskell">Haskell</option>
-      <option value="Clojure">Clojure</option>
-      <option value="Prolog">Prolog</option>
-      <option value="Scala">Scala</option>
-    </select><br><br>
-    <label for="bio">7) Биография:</label><br>
-    <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
-    <input type="checkbox" id="contract_agree" name="contract" required>
-    <label for="contract_agree">8) С контрактом ознакомлен(а)</label><br><br>
-    <input type="submit" value="Сохранить">
-  </form>
+    <div id="miner-screen" class="screen active">
+        <div id="balance">Ваш баланс: 0</div>
+        <div id="coin-container">
+            <div id="coin"></div>
+        </div>
+        <div id="energy-text">Энергия: 1000/1000</div>
+        <div id="energy-container">
+            <div id="energy" style="width: 100%;"></div>
+        </div>
+        <div id="telegram-id">Telegram ID: <span id="telegram-id-value">-</span></div> <!-- Этот блок покажет telegram_id пользователя -->
+    </div>
+
+    <div id="friends-screen" class="screen">
+        <div class="menu-item">
+            <img src="friends.png" alt="Friends">
+            <div>Friends</div>
+            <div>You and your friends will receive bonuses</div>
+        </div>
+        <div id="invite-link">
+            <span>Invite Friends</span>
+            <img src="telegram.png" alt="Telegram">
+        </div>
+        <div>Friends</div>
+        <div>No friends yet</div>
+    </div>
+
+    <div id="earn-screen" class="screen">
+        <div class="menu-item">
+            <img src="earn.png" alt="Earn">
+            <div>Earn more coins</div>
+        </div>
+        <div>Channels</div>
+        <div>No channels available</div>
+    </div>
+
+    <div id="bottom-menu">
+        <div class="menu-item active" data-screen="miner-screen">
+            <img src="miner.png" alt="Miner">
+            <div>Miner</div>
+        </div>
+        <div class="menu-item" data-screen="friends-screen">
+            <img src="friends.png" alt="Friends">
+            <div>Friends</div>
+        </div>
+        <div class="menu-item" data-screen="earn-screen">
+            <img src="earn.png" alt="Earn">
+            <div>Earn</div>
+        </div>
+        <div class="menu-item" data-screen="boost-screen">
+            <img src="boost.png" alt="Boost">
+            <div>Boost</div>
+        </div>
+    </div>
+
+    <script>
+        const telegramIdValue = document.getElementById('telegram-id-value');
+
+        // Получение telegram_id из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const telegramId = urlParams.get('telegram_id');
+
+        if (telegramId) {
+            telegramIdValue.textContent = telegramId;
+            fetchUserInfo(telegramId); // Загрузка информации о пользователе при наличии telegram_id
+        }
+
+        function fetchUserInfo(telegramId) {
+            fetch(`/api/user/${telegramId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Ошибка загрузки данных пользователя');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Обновление интерфейса с полученными данными о пользователе
+                    userData.balance = data.balance;
+                    userData.energy = data.energy;
+                    userData.maxEnergy = data.max_energy;
+                    userData.clickValue = data.click_value;
+                    updateUI();
+                })
+                .catch(error => console.error('Ошибка:', error));
+        }
+
+        const userData = {
+            balance: 0,
+            energy: 1000,
+            maxEnergy: 1000,
+            clickValue: 0.01
+        };
+
+        const coin = document.getElementById('coin');
+        const balanceElement = document.getElementById('balance');
+        const energyElement = document.getElementById('energy');
+        const energyText = document.getElementById('energy-text');
+        const inviteLink = document.getElementById('invite-link');
+        const coinContainer = document.getElementById('coin-container');
+
+        function updateUI() {
+            balanceElement.textContent = `Ваш баланс: ${userData.balance.toFixed(2)}`;
+            energyElement.style.width = `${(userData.energy / userData.maxEnergy) * 100}%`;
+            energyText.textContent = `Энергия: ${userData.energy}/${userData.maxEnergy}`;
+        }
+
+        coin.addEventListener('click', (event) => {
+            if (userData.energy > 0) {
+                userData.balance += userData.clickValue;
+                userData.energy -= 1;
+
+                fetch('/api/user/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        telegram_id: telegramId,
+                        balance: userData.balance,
+                        energy: userData.energy,
+                        max_energy: userData.maxEnergy,
+                        click_value: userData.clickValue
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Ошибка сохранения данных пользователя');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Данные пользователя успешно обновлены:', data.message);
+                    updateUI();
+                    showClickValue(event.clientX, event.clientY, userData.clickValue);
+                    animateCoin();
+                })
+                .catch(error => console.error('Ошибка:', error));
+            }
+        });
+
+        function showClickValue(x, y, value) {
+            const clickValueElem = document.createElement('span');
+            clickValueElem.className = 'click-value';
+            clickValueElem.textContent = `+${value.toFixed(2)}`;
+            clickValueElem.style.left = `${x}px`;
+            clickValueElem.style.top = `${y}px`;
+            document.body.appendChild(clickValueElem);
+
+            setTimeout(() => {
+                clickValueElem.remove();
+            }, 450);
+        }
+
+        function animateCoin() {
+            coin.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                coin.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        function generateReferralLink(telegramUserId) {
+            const userId = Math.floor(Math.random() * 1000000);
+            return `https://faunas.github.io/coinbot/?start=${userId}&telegram_id=${telegramUserId}`;
+        }
+
+        inviteLink.addEventListener('click', () => {
+            const referralLink = generateReferralLink(telegramId);
+            window.open(referralLink, '_blank');
+        });
+
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+
+                const screenId = item.getAttribute('data-screen');
+                document.querySelectorAll('.screen').forEach(screen => {
+                    screen.classList.remove('active');
+                });
+                document.getElementById(screenId).classList.add('active');
+            });
+        });
+
+        updateUI();
+    </script>
+
 </body>
 </html>
