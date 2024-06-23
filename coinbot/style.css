@@ -1,0 +1,169 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #1a1a1a, #000000);
+    color: #ffffff;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+#invisible {
+	margin-top: 116px;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('fonts/minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#balance {
+    font-family: 'Minecraft', sans-serif;
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#coin-container {
+    position: relative;
+	user-select: none;
+}
+
+#coin {
+    width: 239px;
+    height: 239px;
+    background-image: url(assets/coin.png);
+    background-size: cover;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    user-select: none;
+	-webkit-tap-highlight-color: transparent; /* Для iOS и Android */
+    tap-highlight-color: transparent; /* Для Android */
+    outline: none; /* Убирает обводку при фокусе */
+}
+
+.click-value {
+    position: absolute;
+    font-size: 24px;
+    color: black;
+    opacity: 1;
+    pointer-events: none;
+    animation: moveUp 0.45s ease-out forwards;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+}
+
+#energy-container {
+    width: 300px;
+    height: 20px;
+    background-color: #333333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 1px solid #000000;
+}
+
+#energy {
+    height: 100%;
+    background-color: #ffa500;
+    transition: width 0.5s;
+}
+
+#energy-text {
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+#energy-text::before {
+    content: '⚡';
+    margin-right: 5px;
+}
+
+#bottom-menu {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 400px;
+    background: #000000;
+    padding: 10px 0;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu-item img {
+    background: white;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.menu-item.active {
+    background: #ffa500;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#invite-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333333;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#invite-link span {
+    color: #ffffff;
+}
+
+#invite-link img {
+    width: 20px;
+    height: 20px;
+}
