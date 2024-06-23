@@ -12,7 +12,6 @@
         <div id="balance">Ваш баланс: 0</div>
         <div id="coin-container">
             <div id="coin"></div>
-            <span id="click-value">+0.01</span>
         </div>
         <div id="energy-text">Энергия: 1000/1000</div>
         <div id="energy-container">
@@ -74,8 +73,8 @@
         const balanceElement = document.getElementById('balance');
         const energyElement = document.getElementById('energy');
         const energyText = document.getElementById('energy-text');
-        const clickValueElem = document.getElementById('click-value');
         const inviteLink = document.getElementById('invite-link');
+        const coinContainer = document.getElementById('coin-container');
 
         function updateUI() {
             balanceElement.textContent = `Ваш баланс: ${userData.balance.toFixed(2)}`;
@@ -83,7 +82,7 @@
             energyText.textContent = `Энергия: ${userData.energy}/${userData.maxEnergy}`;
         }
 
-        coin.addEventListener('click', () => {
+        coin.addEventListener('click', (event) => {
             if (userData.energy > 0) {
                 userData.balance += userData.clickValue;
                 userData.energy -= 1;
@@ -91,24 +90,29 @@
                 localStorage.setItem('userData', JSON.stringify(userData));
 
                 updateUI();
-                showClickValue(userData.clickValue);
+                showClickValue(event.clientX, event.clientY, userData.clickValue);
                 animateCoin();
             }
         });
 
-        function showClickValue(value) {
+        function showClickValue(x, y, value) {
+            const clickValueElem = document.createElement('span');
+            clickValueElem.className = 'click-value';
             clickValueElem.textContent = `+${value.toFixed(2)}`;
-            clickValueElem.classList.add('show');
+            clickValueElem.style.left = `${x}px`;
+            clickValueElem.style.top = `${y}px`;
+            document.body.appendChild(clickValueElem);
+
             setTimeout(() => {
-                clickValueElem.classList.remove('show');
-            }, 500);
+                clickValueElem.remove();
+            }, 450);
         }
 
         function animateCoin() {
             coin.style.transform = 'scale(0.9)';
             setTimeout(() => {
                 coin.style.transform = 'scale(1)';
-            }, 500);
+            }, 100);
         }
 
         function restoreEnergy() {

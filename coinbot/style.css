@@ -42,24 +42,28 @@ body {
     background-size: cover;
     margin: 20px;
     cursor: pointer;
-    transition: transform 0.5s;
+    transition: transform 0.1s;
+	user-select: none;
 }
 
-#click-value {
+.click-value {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 24px;
-    color: green;
-    opacity: 0;
+    color: black;
+    opacity: 1;
     pointer-events: none;
-    transition: opacity 0.5s, transform 0.5s;
+    animation: moveUp 0.45s ease-out forwards;
 }
 
-#click-value.show {
-    opacity: 1;
-    transform: translate(-50%, -100%);
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
 }
 
 #energy-container {
