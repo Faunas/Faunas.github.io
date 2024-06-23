@@ -17,6 +17,7 @@
         <div id="energy-container">
             <div id="energy" style="width: 100%;"></div>
         </div>
+        <div id="telegram-id">Telegram ID: <span id="telegram-id-value">-</span></div> <!-- Этот блок покажет telegram_id пользователя -->
     </div>
 
     <div id="friends-screen" class="screen">
@@ -62,6 +63,16 @@
     </div>
 
     <script>
+		const telegramIdValue = document.getElementById('telegram-id-value');
+
+        // Получение telegram_id из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const telegramId = urlParams.get('telegram_id');
+
+        if (telegramId) {
+            telegramIdValue.textContent = telegramId;
+        }
+		
         const userData = JSON.parse(localStorage.getItem('userData')) || {
             balance: 0,
             energy: 1000,
@@ -128,7 +139,7 @@
         function generateReferralLink(telegramUserId) {
 			const userId = localStorage.getItem('userId') || Math.floor(Math.random() * 1000000);
 			localStorage.setItem('userId', userId);
-			return `https://yourwebsite.com/?start=${userId}&telegram_id=${telegramUserId}`;
+			return `https://faunas.github.io/coinbot/?start=${userId}&telegram_id=${telegramUserId}`;
 		}
 		
 		// Function to parse URL parameters
