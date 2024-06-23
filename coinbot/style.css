@@ -15,7 +15,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex: 1;
     width: 100%;
     padding-top: 20px;
 }
@@ -26,25 +25,28 @@ body {
 
 #balance {
     margin-top: 20px;
-    font-size: 24px;
     text-align: center;
     font-weight: bold;
+    font-size: 30px;
+    font-family: cursive;
+    margin-bottom: 200px;
 }
 
 #coin-container {
     position: relative;
 	user-select: none;
+	    margin-bottom: 107px;
 }
 
 #coin {
-    width: 120px;
-    height: 120px;
-    background-image: url('coin.png');
+    width: 200px;
+    height: 200px;
+    background-image: url(coin.png);
     background-size: cover;
     margin: 20px;
     cursor: pointer;
     transition: transform 0.1s;
-	user-select: none;
+    user-select: none;
 }
 
 .click-value {
